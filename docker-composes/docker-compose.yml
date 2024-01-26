@@ -47,7 +47,7 @@ services:
       ME_CONFIG_BASICAUTH_USERNAME: 'sa'
       ME_CONFIG_BASICAUTH_PASSWORD: 'sa'
     depends_on:
-      - database
+      - mongo
     ports:
       - "8081:8081"   
 
@@ -70,7 +70,7 @@ services:
       PGADMIN_DEFAULT_EMAIL: 'pgadmin4@pgadmin.org'
       PGADMIN_DEFAULT_PASSWORD: 'admin'
     depends_on:
-      - database
+      - postgres
     volumes:
       - pgadmin:/var/lib/pgadmin
     ports:
