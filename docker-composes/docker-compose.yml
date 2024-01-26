@@ -8,7 +8,7 @@ services:
       - postgres
     build:
       context: ./backend
-      dockerfile: Dockerfile.prod
+      dockerfile: Dockerfile
     stdin_open: true
     tty: true
     ports:
@@ -19,7 +19,7 @@ services:
       - backend
     build:
       context: ./frontend
-      dockerfile: Dockerfile.prod
+      dockerfile: Dockerfile
     stdin_open: true
     tty: true
     ports:
