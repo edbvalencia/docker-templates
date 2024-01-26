@@ -4,7 +4,8 @@ services:
 
   backend:
     depends_on:
-      - database
+      - mongo
+      - postgres
     build:
       context: ./backend
       dockerfile: Dockerfile.prod
