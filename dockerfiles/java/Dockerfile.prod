@@ -1,0 +1,14 @@
+ARG MAVEN_VERSION_BUILD=3.8.5-openjdk-17
+ARG JAVA_VERSION_RUNTIME=17-slim
+
+FROM maven:${MAVEN_VERSION_BUILD} AS builder
+WORKDIR /usr/src/app
+COPY . .
+RUN mvn clean package -DskipTests
+
+FROM openjdk:${JAVA_VERSION_RUNTIME}
+WORKDIR /usr/src/app
+COPY --from=builder /usr/src/app/target/*.jar app.jar
+EXPOSE 8080
+
+CMD ["java", "-jar", "app.jar"]
