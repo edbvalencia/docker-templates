@@ -11,6 +11,8 @@ services:
       dockerfile: Dockerfile
     stdin_open: true
     tty: true
+    volumes:
+      - ./backend:/usr/src/app
     ports:
       - "8080:8080"
 
@@ -22,6 +24,8 @@ services:
       dockerfile: Dockerfile
     stdin_open: true
     tty: true
+    volumes:
+      - ./frontend:/usr/src/app
     ports:
       - "4173:4173"
 
