@@ -30,7 +30,7 @@ services:
       - "4173:4173"
 
   mongo:
-    image: mongo:latest
+    image: mongo
     restart: unless-stopped
     environment:
       MONGO_INITDB_ROOT_USERNAME: 'root'
@@ -45,7 +45,7 @@ services:
     image: mongo-express
     restart: unless-stopped
     environment:
-      ME_CONFIG_MONGODB_SERVER: 'database'
+      ME_CONFIG_MONGODB_SERVER: 'mongo'
       ME_CONFIG_MONGODB_ADMINUSERNAME: 'root'
       ME_CONFIG_MONGODB_ADMINPASSWORD: 'root'
       ME_CONFIG_MONGODB_PORT: '27017'
